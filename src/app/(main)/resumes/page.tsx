@@ -1,10 +1,14 @@
 import React from 'react'
 
+export const metadata = {
+    title: "Resumes",
+    description: "Create a perfect resume in minutes",
+    };
 export default function page() {
   return (
-    <div>
+    <main>
         This is resumes page
       
-    </div>
+    </main>
   )
 }
