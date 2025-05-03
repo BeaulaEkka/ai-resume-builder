@@ -11,7 +11,7 @@ export default function page() {
   return (
     <main>
       This is resumes page
-      <Button asChild className="mx-auto flex w-fit gap-2">
+      <Button asChild className="mx-auto flex w-fit gap-2" variant="default">
         <Link href="/editor">
           <PlusSquare className="size-5" /> New Resume
         </Link>
