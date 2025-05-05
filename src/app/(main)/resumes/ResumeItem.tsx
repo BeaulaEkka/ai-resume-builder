@@ -1,10 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function ResumeItem() {
-    const []
-  return (
-    <div>
-      
-    </div>
-  )
+  return <div>This is resume item</div>;
 }

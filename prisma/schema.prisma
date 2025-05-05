@@ -16,9 +16,9 @@ datasource db {
 
 
 model User {
-  id       String   @id @default(cuid())
+  id       String   @id @default(cuid()) //primary key
   email    String   @unique
-  resumes  Resume[]
+  resumes  Resume[] //one to many relationship
 }
 
 model Resume {
