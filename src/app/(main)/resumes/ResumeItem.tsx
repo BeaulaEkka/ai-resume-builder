@@ -1,5 +1,9 @@
+import { ResumeServerData } from '@/lib/types';
 import React from 'react';
 
-export default function ResumeItem() {
+interface ResumeItemProps {
+  resume: ResumeServerData;
+}
+export default function ResumeItem({ resume }: ResumeItemProps) {
   return <div>This is resume item</div>;
 }

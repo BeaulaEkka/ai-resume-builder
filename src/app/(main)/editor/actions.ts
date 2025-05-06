@@ -7,9 +7,10 @@ export async function createNewResume(userId: string) {
     data: {
       title: "Untitled Resume",
       userId,
-      description: "",
+      description: null,
     },
   });
 
   return resume;
 }
+console.log("New resume ID:", resume.id);

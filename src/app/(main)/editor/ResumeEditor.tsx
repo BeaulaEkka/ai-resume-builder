@@ -1,6 +1,9 @@
+'use client';
 import { useState } from 'react';
 import ResumePreviewSection from './ResumePreviewSection';
-import { ResumeValues } from '@/types/resume'; // assume you define this
+// assume you define this
+import { mapToResumeValues } from '@/lib/utils';
+import { ResumeValues } from '@/app/types';
 
 interface ResumeEditorProps {
   resumeToEdit: {
@@ -14,15 +17,15 @@ interface ResumeEditorProps {
 }
 
 export default function ResumeEditor({ resumeToEdit }: ResumeEditorProps) {
-  const [resumeData, setResumeData] = useState<ResumeValues>(
-    mapToResumeValues(resumeToEdit)
-  );
+  // const [resumeData, setResumeData] = useState<ResumeValues>(
+  //   mapToResumeValues(resumeToEdit)
+  // );
 
   return (
     <div>
       <ResumePreviewSection
-        resumeId={resumeToEdit.id}
-        setResumeData={setResumeData}
+        resume={resumeToEdit}
+        // setResumeData={setResumeData}
       />
     </div>
   );

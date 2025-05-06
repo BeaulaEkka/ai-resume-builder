@@ -1,5 +1,3 @@
-import { Prisma } from "@prisma/client";
-
 export type ResumeValues = {
   title: string;
   description: string;
@@ -7,5 +5,3 @@ export type ResumeValues = {
   createdAt: Date;
   updatedAt: Date;
 };
-
-export type ResumeServerData = Prisma.ResumeGetPayload<{}>;
