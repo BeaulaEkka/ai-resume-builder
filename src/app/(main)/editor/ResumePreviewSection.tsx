@@ -8,11 +8,11 @@ interface ResumePreviewSectionProps {
 }
 export default function ResumePreviewSection({
   resumeData,
-  setResumeData,
+
   className,
 }: ResumePreviewSectionProps) {
   return (
-    <div>
+    <div className="aspect-[210/297] h-fit w-[794] p-12 text-black">
       <ResumePreview resumeData={resumeData} className="max-w-2xl border" />
     </div>
   );
