@@ -29,4 +29,15 @@ model Resume {
   user            User     @relation(fields: [userId], references: [id])
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
+
+  photoUrl        String?
+  firstName       String?
+  lastName        String?
+  jobTitle        String?
+  city            String?
+  country         String?
+  phone           String?
+  zipCode         String?
+  email           String?
+
 }

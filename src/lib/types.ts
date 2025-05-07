@@ -1,3 +1,10 @@
-import { Resume } from "../../generated/prisma";
+import { Prisma, Resume } from "../../generated/prisma";
+import { ResumeValues } from "./validations";
 
-export type ResumeServerData = Resume;
+export interface EditorFormProps {
+  resumeData: ResumeValues;
+  setResumeData: (data: ResumeValues) => void;
+  key: string;
+}
+
+export type ResumeServerData = Prisma.ResumeGetPayload;

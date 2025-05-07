@@ -1,5 +1,6 @@
 import React from 'react';
 import ResumePreview from './ResumePreview';
+import { ResumeValues } from '@/lib/validations';
 
 interface ResumePreviewSectionProps {
   resumeData: ResumeValues;
@@ -8,7 +9,7 @@ interface ResumePreviewSectionProps {
 }
 export default function ResumePreviewSection({
   resumeData,
-
+  setResumeData,
   className,
 }: ResumePreviewSectionProps) {
   return (

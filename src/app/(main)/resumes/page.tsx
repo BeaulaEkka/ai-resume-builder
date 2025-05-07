@@ -2,13 +2,11 @@ import prisma from '@/lib/prisma';
 
 import { auth } from '@clerk/nextjs/server';
 import { Metadata } from 'next';
-import CreateResumeButton from './CreateResumeButton';
+// import CreateResumeButton from './CreateResumeButton';
 import ResumeItem from './ResumeItem';
-import { getUserSubscriptionLevel } from '@/lib/subscriptions';
+// import { getUserSubscriptionLevel } from '@/lib/subscriptions';
 // import { canCreateResume } from '@/lib/permissions';
-import stripe from '@/lib/stripe';
 import { JSX } from 'react';
-import Stripe from 'stripe';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { PlusSquare } from 'lucide-react';
@@ -35,7 +33,11 @@ export default async function page(): Promise<JSX.Element | null> {
   //     })
   //   : null;
 
-  const [resumes, totalCount, subscriptionLevel] = await Promise.all([
+  const [
+    resumes,
+    // totalCount,
+    // subscriptionLevel
+  ] = await Promise.all([
     prisma.resume.findMany({
       where: {
         userId,
