@@ -8,7 +8,7 @@ export const optionalString = z
   .or(z.literal(""))
   .or(z.null());
 
-//generalSchema
+//generalInfoSchema
 export const generalInfoSchema = z.object({
   title: optionalString,
   description: optionalString,

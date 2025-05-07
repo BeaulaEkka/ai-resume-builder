@@ -1,3 +1,5 @@
+import { EditorFormProps } from "@/lib/types";
+import GeneralInfoForm from "./forms/GeneralInfoForm";
 import PersonalInfoForm from "./forms/PersonalInfoForm";
 
 export const steps: {

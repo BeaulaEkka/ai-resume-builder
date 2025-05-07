@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { ResumeValues } from '@/lib/validations';
 import { mapToResumeValues } from '@/lib/utils';
 import BreadCrumbs from './BreadCrumbs';
+import { steps } from './steps';
 // assume you define this
 // import { mapToResumeValues } from '@/lib/utils';
 // import { ResumeValues } from '@/app/types';
@@ -29,6 +30,17 @@ export default function ResumeEditor({ resumeToEdit }: ResumeEditorProps) {
         }
   );
 
+  const currentStep = searchparams.get('step') || steps[0].key;
+  function setCurrentStep(key: string) {
+    const newSearchParams = new URLSearchParams(searchparams);
+    newSearchParams.set('step', key);
+    window.history.pushState(null, '', `?${newSearchParams.toString()}`);
+  }
+
+  const FormComponent = steps.find(
+    (step) => step.key === currentStep
+  )?.component;
+
   return (
     <div className="flex grow flex-col">
       <header className="space-y-1.5 border-b px-3 py-5 text-center">
@@ -38,7 +50,14 @@ export default function ResumeEditor({ resumeToEdit }: ResumeEditorProps) {
           saved automatically
         </p>
       </header>
-      <BreadCrumbs />
+      <BreadCrumbs currentStep={currentStep} setCurrentStep={setCurrentStep} />
+      {FormComponent && (
+        <FormComponent
+          key={currentStep}
+          resumeData={resumeData}
+          setResumeData={setResumeData}
+        ></FormComponent>
+      )}
       <ResumePreviewSection
         resumeData={resumeData}
         setResumeData={setResumeData}
