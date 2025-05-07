@@ -1,5 +1,4 @@
 import prisma from '@/lib/prisma';
-
 import { auth } from '@clerk/nextjs/server';
 import { Metadata } from 'next';
 // import CreateResumeButton from './CreateResumeButton';
@@ -35,7 +34,7 @@ export default async function page(): Promise<JSX.Element | null> {
 
   const [
     resumes,
-    // totalCount,
+    totalCount,
     // subscriptionLevel
   ] = await Promise.all([
     prisma.resume.findMany({
@@ -72,11 +71,11 @@ export default async function page(): Promise<JSX.Element | null> {
       {/* <p className="capitalize">
         <span className="text-bold text-xl">Subscription: </span>
         {priceInfo ? (priceInfo.product as Stripe.Product).name : 'Free'}
-      </p>
+      </p> */}
       <div className="space-y-1">
         <h1 className="text-3xl font-bold">Your resumes</h1>
         <p>Total:{totalCount}</p>
-      </div> */}
+      </div>
       <div className="flex w-full grid-cols-2 flex-col gap-3 sm:grid md:grid-cols-3 lg:grid-cols-4">
         {resumes.map((resume) => (
           <ResumeItem key={resume.id} resume={resume} />
