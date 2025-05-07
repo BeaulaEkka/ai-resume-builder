@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { ResumeValues } from '@/lib/validations';
 import { mapToResumeValues } from '@/lib/utils';
+import BreadCrumbs from './BreadCrumbs';
 // assume you define this
 // import { mapToResumeValues } from '@/lib/utils';
 // import { ResumeValues } from '@/app/types';
@@ -37,6 +38,7 @@ export default function ResumeEditor({ resumeToEdit }: ResumeEditorProps) {
           saved automatically
         </p>
       </header>
+      <BreadCrumbs />
       <ResumePreviewSection
         resumeData={resumeData}
         setResumeData={setResumeData}
