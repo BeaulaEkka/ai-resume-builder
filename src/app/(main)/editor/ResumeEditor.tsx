@@ -1,6 +1,5 @@
 'use client';
 import { ResumeServerData } from '@/lib/types';
-// import { useState } from 'react';
 import ResumePreviewSection from './ResumePreviewSection';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
@@ -31,6 +30,7 @@ export default function ResumeEditor({ resumeToEdit }: ResumeEditorProps) {
   );
 
   const currentStep = searchparams.get('step') || steps[0].key;
+
   function setCurrentStep(key: string) {
     const newSearchParams = new URLSearchParams(searchparams);
     newSearchParams.set('step', key);
