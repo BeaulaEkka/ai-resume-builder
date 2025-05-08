@@ -4,7 +4,7 @@ import ResumePreviewSection from './ResumePreviewSection';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { ResumeValues } from '@/lib/validations';
-import { mapToResumeValues } from '@/lib/utils';
+import { cn, mapToResumeValues } from '@/lib/utils';
 import BreadCrumbs from './BreadCrumbs';
 import { steps } from './steps';
 // assume you define this
@@ -30,6 +30,7 @@ export default function ResumeEditor({ resumeToEdit }: ResumeEditorProps) {
   );
 
   const currentStep = searchparams.get('step') || steps[0].key;
+  const [showSmResumePreview, setShowSmResumePreview] = useState(false);
 
   function setCurrentStep(key: string) {
     const newSearchParams = new URLSearchParams(searchparams);
@@ -50,14 +51,24 @@ export default function ResumeEditor({ resumeToEdit }: ResumeEditorProps) {
           saved automatically
         </p>
       </header>
-      <BreadCrumbs currentStep={currentStep} setCurrentStep={setCurrentStep} />
-      {FormComponent && (
-        <FormComponent
-          key={currentStep}
-          resumeData={resumeData}
-          setResumeData={setResumeData}
-        ></FormComponent>
-      )}
+      <div
+        className={cn(
+          'w-full space-y-6 overflow-y-auto p-3 md:w-1/2',
+          showSmResumePreview && 'hidden'
+        )}
+      >
+        <BreadCrumbs
+          currentStep={currentStep}
+          setCurrentStep={setCurrentStep}
+        />
+        {FormComponent && (
+          <FormComponent
+            key={currentStep}
+            resumeData={resumeData}
+            setResumeData={setResumeData}
+          ></FormComponent>
+        )}
+      </div>
       <ResumePreviewSection
         resumeData={resumeData}
         setResumeData={setResumeData}
